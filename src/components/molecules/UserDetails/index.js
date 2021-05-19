@@ -83,6 +83,7 @@ function UserDetails(props) {
                 </Box>
             </Box>
             <Menu
+                className={style.dropDown}
                 anchorEl={props.anchorEl}
                 keepMounted
                 open={Boolean(props.anchorEl)}

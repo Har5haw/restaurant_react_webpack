@@ -22,7 +22,6 @@ const itemsData = () => store.getState().itemsList;
 const noOfServings = () => store.getState().waiterServingsList.noOfServings;
 
 export const onTableClick = (index) => {
-    console.log("clicked");
     if (!waiterData().name) {
         store.dispatch(openAlert("You need to login first"));
         return;

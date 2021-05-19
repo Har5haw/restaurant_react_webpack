@@ -1,5 +1,6 @@
 import { fireEvent, render } from "@testing-library/react";
 import EditableLabel from ".";
+import React from "react";
 
 describe("Editable label tests", () => {
     it("render", () => {

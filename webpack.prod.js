@@ -17,6 +17,9 @@ module.exports = {
             },
         ],
     },
+    optimization: {
+        splitChunks: { chunks: "all" },
+    },
     output: {
         filename: "static/[name].[fullhash].js",
         path: path.resolve(__dirname, "dist"),

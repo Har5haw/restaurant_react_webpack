@@ -1,6 +1,7 @@
 import { Box } from "@material-ui/core";
 import { render } from "@testing-library/react";
 import ProfileTemplate from ".";
+import React from "react";
 
 describe("Home template test", () => {
     it("render", () => {

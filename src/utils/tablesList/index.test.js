@@ -26,33 +26,46 @@ describe("util tests", () => {
     const useDispatchSpy = jest.spyOn(store, "dispatch");
 
     store.dispatch(saveUser({ name: "shaw" }));
+    const itemsData = () => store.getState().itemsList;
+    store.dispatch(
+        addItemToTable({
+            index: 0,
+            itemData: itemsData().filter((ele) => ele.id === 1)[0],
+        })
+    );
 
     it("on table click", () => {
-        onTableClick(1);
+        onTableClick(0);
         expect(useDispatchSpy).toBeCalledWith(
             changeData({
-                tableIndex: 1,
+                tableIndex: 0,
             })
         );
     });
 
     it("on delete", () => {
-        onDelete(1);
+        onDelete(0);
         expect(useDispatchSpy).toBeCalledWith(
             deleteItem({
-                itemIndex: 1,
+                itemIndex: 0,
                 tableIndex: 0,
+            })
+        );
+        store.dispatch(
+            addItemToTable({
+                index: 0,
+                itemData: itemsData().filter((ele) => ele.id === 1)[0],
             })
         );
     });
 
     it("onServingsChange", () => {
         const event = { target: { value: "2" } };
-        onServingsChange(event, 1);
+        onServingsChange(event, 0);
         expect(useDispatchSpy).toBeCalledWith(
             changeServings({
                 servings: event.target.value,
-                itemIndex: 1,
+                itemIndex: 0,
                 tableIndex: 0,
             })
         );
@@ -94,7 +107,7 @@ describe("util tests", () => {
         mockFn.mockReturnValue(1);
         drop(event, 0);
         expect(preventDefMock).toBeCalledTimes(1);
-        const itemsData = () => store.getState().itemsList;
+
         expect(useDispatchSpy).toBeCalledWith(
             addItemToTable({
                 index: 0,
@@ -107,17 +120,16 @@ describe("util tests", () => {
         expect(useDispatchSpy).toBeCalledWith(closePopup());
     });
     it("close servings", () => {
-        const noOfServings = () =>
-            store.getState().waiterServingsList.noOfServings;
+        const noOfServings = store.getState().waiterServingsList.noOfServings;
 
-        const tableData = () => store.getState().tableList;
+        const tableData = store.getState().tableList;
         closeServings();
         expect(useDispatchSpy).toBeCalledTimes(3);
         expect(useDispatchSpy).nthCalledWith(
             1,
             addServingsToWaiterList({
-                ...tableData()[0],
-                id: noOfServings(),
+                ...tableData[0],
+                id: noOfServings,
                 tableId: 0,
             })
         );
@@ -126,7 +138,9 @@ describe("util tests", () => {
     });
     it("customer name change", () => {
         onCustomerNameSave("Shaw");
-        expect(useDispatchSpy).toBeCalledWith(
+        expect(useDispatchSpy).toBeCalledTimes(2);
+        expect(useDispatchSpy).nthCalledWith(
+            1,
             editCustomerName({
                 tableId: 0,
                 customerName: "Shaw",

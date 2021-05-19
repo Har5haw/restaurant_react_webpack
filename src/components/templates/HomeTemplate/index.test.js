@@ -3,6 +3,7 @@ import { render } from "@testing-library/react";
 import { Provider } from "react-redux";
 import HomeTemplate from ".";
 import store from "../../../app/store";
+import React from "react";
 
 describe("Home template test", () => {
     it("render", () => {

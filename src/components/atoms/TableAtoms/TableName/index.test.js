@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import TableName from ".";
+import React from "react";
 
 describe("Table Name", () => {
     it("render Table Name", () => {

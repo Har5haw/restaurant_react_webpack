@@ -17,7 +17,7 @@ const PopUp = (props) => {
             </DialogTitle>
             <DialogContent dividers>{props.children}</DialogContent>
             <DialogContent>
-                <Typography>Total Amount: {props.totalPrice}</Typography>
+                <Typography>Total Amount: {props.totalPrice} /-</Typography>
                 <Typography variant="subtitle2">
                     Waiter Name: {props.user}
                 </Typography>

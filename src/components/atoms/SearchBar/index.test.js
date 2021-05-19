@@ -1,5 +1,6 @@
 import { fireEvent, render } from "@testing-library/react";
 import SearchBar from ".";
+import React from "react";
 
 describe("Search bar Bar", () => {
     it("render search bar", () => {

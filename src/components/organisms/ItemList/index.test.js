@@ -2,11 +2,16 @@ import { fireEvent, render, act, screen } from "@testing-library/react";
 import ItemsList from ".";
 import { Provider } from "react-redux";
 import store from "../../../app/store";
+import React from "react";
+import { ThemeProvider } from "@material-ui/styles";
+import theme from "../../../themes/index";
 
 const getWrapper = () => {
     const wrapper = render(
         <Provider store={store}>
-            <ItemsList />
+            <ThemeProvider theme={theme}>
+                <ItemsList />
+            </ThemeProvider>
         </Provider>
     );
     expect(wrapper).toBeDefined;

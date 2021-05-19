@@ -1,5 +1,6 @@
 import { fireEvent, render } from "@testing-library/react";
 import LoginButton from ".";
+import React from "react";
 
 describe("Login Button test", () => {
     it("render", () => {

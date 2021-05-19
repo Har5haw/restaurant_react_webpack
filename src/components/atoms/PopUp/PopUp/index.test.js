@@ -1,5 +1,6 @@
 import { fireEvent, render } from "@testing-library/react";
 import PopUp from ".";
+import React from "react";
 
 describe("Popup ", () => {
     it("render popup when open true", () => {
@@ -7,7 +8,7 @@ describe("Popup ", () => {
         expect(wrapper).toBeDefined;
 
         expect(wrapper.queryByText("Table No - 1")).toBeInTheDocument();
-        expect(wrapper.queryByText("Total Amount: 20")).toBeInTheDocument();
+        expect(wrapper.queryByText("Total Amount: 20 /-")).toBeInTheDocument();
     });
     it("render popup when open false", () => {
         const wrapper = render(<PopUp open={false} tableName={0} />);

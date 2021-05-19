@@ -4,6 +4,7 @@ import AlertComponent from ".";
 import store from "../../../app/store";
 import { closeAlert, openAlert } from "../../../features/AlertPopup";
 import * as react from "react-redux";
+import React from "react";
 
 describe("Alert component test", () => {
     it("render test", () => {

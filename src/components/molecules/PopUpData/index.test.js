@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import PopupData from ".";
+import React from "react";
 
 describe("Popup Data", () => {
     it("render Popup Data", () => {
@@ -98,7 +99,7 @@ describe("Popup Data", () => {
 
         expect(
             screen.queryByText(
-                Drag and drop an item on a table to add that item to the table
+                "Drag and drop an item on a table to add that item to the table"
             )
         ).toBeInTheDocument();
     });

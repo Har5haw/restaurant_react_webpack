@@ -4,22 +4,28 @@ import TablesList from ".";
 import { Provider } from "react-redux";
 import { saveUser } from "../../../features/waiterServingsList";
 import { editCustomerName } from "../../../features/tableList";
+import React from "react";
+import "@testing-library/jest-dom";
+import { ThemeProvider } from "@material-ui/styles";
+import theme from "../../../themes/index";
 
-describe("Table", () => {
+describe("Table List tests", () => {
     store.dispatch(saveUser({ name: "shaw" }));
     store.dispatch(editCustomerName({ tableId: 0, customerName: "reyna" }));
     it("Initial render", () => {
         const wrapper = render(
             <Provider store={store}>
-                <TablesList
-                    tableData={require("../../../data/tables.json")}
-                    popupData={{
-                        tableIndex: 0,
-                        isOpen: false,
-                    }}
-                    editablePopup={true}
-                    waiterData={{ name: "shaw" }}
-                />
+                <ThemeProvider theme={theme}>
+                    <TablesList
+                        tableData={require("../../../data/tables.json")}
+                        popupData={{
+                            tableIndex: 0,
+                            isOpen: false,
+                        }}
+                        editablePopup={true}
+                        waiterData={{ name: "shaw" }}
+                    />
+                </ThemeProvider>
             </Provider>
         );
         expect(wrapper).toBeDefined;
@@ -27,33 +33,35 @@ describe("Table", () => {
         fireEvent.click(wrapper.queryByText("Table No - 1"));
         expect(
             wrapper.queryByText(
-                Drag and drop an item on a table to add that item to the table
+                "Drag and drop an item on a table to add that item to the table"
             )
         ).toBeInTheDocument();
-        expect(wrapper.queryByText("Total Amount: 0")).toBeInTheDocument();
+        expect(wrapper.queryByText("Total Amount: 0 /-")).toBeInTheDocument();
         expect(wrapper.queryAllByText("Table No - 1")).toHaveLength(2);
         fireEvent.click(wrapper.queryByText("Close"));
     });
     it("Adding Item", () => {
         const wrapper = render(
             <Provider store={store}>
-                <TablesList
-                    tableData={[
-                        {
-                            id: 0,
-                            tableName: "Shaw",
-                            totalItems: 0,
-                            totalPrice: 0,
-                            items: [],
-                        },
-                    ]}
-                    popupData={{
-                        tableIndex: 0,
-                        isOpen: false,
-                    }}
-                    editablePopup={true}
-                    waiterData={{ name: "shaw" }}
-                />
+                <ThemeProvider theme={theme}>
+                    <TablesList
+                        tableData={[
+                            {
+                                id: 0,
+                                tableName: "Shaw",
+                                totalItems: 0,
+                                totalPrice: 0,
+                                items: [],
+                            },
+                        ]}
+                        popupData={{
+                            tableIndex: 0,
+                            isOpen: false,
+                        }}
+                        editablePopup={true}
+                        waiterData={{ name: "shaw" }}
+                    />
+                </ThemeProvider>
             </Provider>
         );
         expect(wrapper).toBeDefined;
@@ -80,25 +88,27 @@ describe("Table", () => {
     it("Search bar testing", async () => {
         const wrapper = render(
             <Provider store={store}>
-                <TablesList
-                    tableData={[
-                        {
-                            id: 0,
-                            tableName: "Shaw",
-                            totalItems: 0,
-                            totalPrice: 0,
-                            items: [],
-                        },
-                        {
-                            id: 1,
-                            tableName: "Reyna",
-                            totalItems: 0,
-                            totalPrice: 0,
-                            items: [],
-                        },
-                    ]}
-                    waiterData={{ name: "shaw" }}
-                />
+                <ThemeProvider theme={theme}>
+                    <TablesList
+                        tableData={[
+                            {
+                                id: 0,
+                                tableName: "Shaw",
+                                totalItems: 0,
+                                totalPrice: 0,
+                                items: [],
+                            },
+                            {
+                                id: 1,
+                                tableName: "Reyna",
+                                totalItems: 0,
+                                totalPrice: 0,
+                                items: [],
+                            },
+                        ]}
+                        waiterData={{ name: "shaw" }}
+                    />
+                </ThemeProvider>
             </Provider>
         );
         expect(wrapper).toBeDefined;
@@ -121,3 +131,18 @@ describe("Table", () => {
         await act(() => promiseForCoolDown());
     });
 });
+
+// const axios = require("axios");
+
+// const options = {
+//   method: 'PATCH',
+//   url: 'https://YOUR_DOMAIN/api/v2/users/'+user.sub,
+//   headers: {authorization: 'Bearer <Token>', 'content-type': 'application/json'},
+//   data: {user_metadata: {picture: 'url to picture'}}
+// };
+
+// axios.request(options).then(function (response) {
+//   console.log(response.data);
+// }).catch(function (error) {
+//   console.error(error);
+// });

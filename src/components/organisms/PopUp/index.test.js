@@ -1,5 +1,6 @@
 import { render } from "@testing-library/react";
 import PopUpOrganism from ".";
+import React from "react";
 
 describe("popup test", () => {
     it("editable on test", () => {

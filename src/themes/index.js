@@ -75,7 +75,7 @@ const baseTheme = createMuiTheme({
 
         //for username in homepage
         h2: {
-            fontSize: "20px",
+            fontSize: "30px",
             fontWeight: "bolder",
             "@media (max-width:600px)": {
                 fontSize: 10,

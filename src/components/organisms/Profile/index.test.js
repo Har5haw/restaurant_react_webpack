@@ -2,7 +2,7 @@ import { fireEvent, render } from "@testing-library/react";
 import { Provider } from "react-redux";
 import ProfileComponent from ".";
 import store from "../../../app/store";
-import waiterSlice, { saveUser } from "../../../features/waiterServingsList";
+import React from "react";
 
 describe("Profile Test", () => {
     it("render", () => {

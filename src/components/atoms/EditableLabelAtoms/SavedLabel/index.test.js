@@ -1,5 +1,6 @@
 import { fireEvent, render } from "@testing-library/react";
 import SavedLabel from ".";
+import React from "react";
 
 describe("Save label test", () => {
     it("render", () => {

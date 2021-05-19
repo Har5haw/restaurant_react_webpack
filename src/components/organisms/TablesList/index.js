@@ -144,7 +144,6 @@ const TablesList = (props) => {
                             onDragOver={allowDrop}
                             onDrop={(event) => drop(event, element.id)}
                             onClick={() => {
-                                console.log("clicked");
                                 onTableClick(element.id);
                             }}
                             data={{
