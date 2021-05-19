@@ -61,6 +61,9 @@ TableName.propsType = {
     tableName: PropTypes.string.isRequired,
     totalItems: PropTypes.number.isRequired,
     totalPrice: PropTypes.number.isRequired,
+    isServings: PropTypes.bool.isRequired,
+    tableId: PropTypes.number,
+    id: PropTypes.number,
 };
 
 export default TableName;

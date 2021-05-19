@@ -131,18 +131,3 @@ describe("Table List tests", () => {
         await act(() => promiseForCoolDown());
     });
 });
-
-// const axios = require("axios");
-
-// const options = {
-//   method: 'PATCH',
-//   url: 'https://YOUR_DOMAIN/api/v2/users/'+user.sub,
-//   headers: {authorization: 'Bearer <Token>', 'content-type': 'application/json'},
-//   data: {user_metadata: {picture: 'url to picture'}}
-// };
-
-// axios.request(options).then(function (response) {
-//   console.log(response.data);
-// }).catch(function (error) {
-//   console.error(error);
-// });

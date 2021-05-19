@@ -1,10 +1,10 @@
 import { fireEvent, render } from "@testing-library/react";
-import { Provider } from "react-redux";
 import AlertComponent from ".";
 import store from "../../../app/store";
 import { closeAlert, openAlert } from "../../../features/AlertPopup";
 import * as react from "react-redux";
 import React from "react";
+import { Provider } from "react-redux";
 
 describe("Alert component test", () => {
     it("render test", () => {

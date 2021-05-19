@@ -2,7 +2,7 @@
 
 body {
     margin: 0;
-    font-family: "Itim";
+    font-family: Itim, sans-serif;
 }
 
 ::-webkit-scrollbar {

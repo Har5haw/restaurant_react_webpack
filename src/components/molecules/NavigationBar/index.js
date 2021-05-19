@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, makeStyles, Typography } from "@material-ui/core";
+import PropTypes from "prop-types";
 
 const useStyle = makeStyles(() => ({
     nav: {
@@ -36,6 +37,10 @@ const NavigationBar = (props) => {
             <Box className={style.right}>{props.rightComponent}</Box>
         </Box>
     );
+};
+
+NavigationBar.propTypes = {
+    logoClick: PropTypes.func.isRequired,
 };
 
 export default NavigationBar;

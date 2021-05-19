@@ -2,6 +2,7 @@ import React from "react";
 import ItemName from "../../atoms/ItemAtoms/ItemName/index";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box, Card } from "@material-ui/core";
+import PropTypes from "prop-types";
 
 const styles = makeStyles((theme) => ({
     root: {
@@ -53,13 +54,17 @@ const styles = makeStyles((theme) => ({
         },
     },
 }));
-import PropTypes from "prop-types";
 
 const Item = (props) => {
     const style = styles();
 
     return (
-        <Card raised={true} className={style.root} {...props}>
+        <Card
+            raised={true}
+            className={style.root}
+            onDragStart={props.onDragStart}
+            draggable={props.draggable}
+        >
             <Box className={style.iconContainer}>
                 <img
                     src={props.data.image}
@@ -79,6 +84,8 @@ Item.propsType = {
     data: PropTypes.shape({
         image: PropTypes.string.isRequired,
     }).isRequired,
+    onDragStart: PropTypes.func.isRequired,
+    draggable: PropTypes.bool.isRequired,
 };
 
 export default Item;

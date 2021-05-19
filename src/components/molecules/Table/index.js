@@ -85,7 +85,9 @@ const Table = (props) => {
                     ? style.reservedRoot
                     : style.notReservedRoot
             }
-            {...props}
+            onDragOver={props.onDragOver}
+            onDrop={props.onDrop}
+            onClick={props.onClick}
         >
             <Box className={style.iconContainer}>
                 <img
@@ -103,6 +105,9 @@ const Table = (props) => {
 
 Table.propsType = {
     data: PropTypes.object.isRequired,
+    onDragOver: PropTypes.func.isRequired,
+    onDrop: PropTypes.func.isRequired,
+    onClick: PropTypes.func.isRequired,
 };
 
 export default Table;

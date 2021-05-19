@@ -45,6 +45,11 @@ PopUp.propsType = {
     close: PropTypes.func.isRequired,
     tableName: PropTypes.string.isRequired,
     totalPrice: PropTypes.string.isRequired,
+    editable: PropTypes.bool.isRequired,
+    closeServings: PropTypes.func.isRequired,
+    showCloseServings: PropTypes.bool.isRequired,
+    id: PropTypes.number.isRequired,
+    user: PropTypes.string.isRequired,
 };
 
 export default PopUp;
