@@ -22,4 +22,22 @@ describe("Home template test", () => {
         expect(wrapper.queryByText("Table List")).toBeInTheDocument();
         expect(wrapper.queryByText("Item List")).toBeInTheDocument();
     });
+    it("is loading", () => {
+        const wrapper = render(
+            <Provider store={store}>
+                <HomeTemplate
+                    navigationBarComponent={<Box>Navigation bar</Box>}
+                    tableListComponent={<Box>Table List</Box>}
+                    itemListComponent={<Box>Item List</Box>}
+                    isLoading={true}
+                />
+            </Provider>
+        );
+
+        expect(wrapper).toBeDefined();
+        expect(wrapper.queryByText("Navigation bar")).toBeInTheDocument();
+        expect(wrapper.queryByText("Table List")).toBeInTheDocument();
+        expect(wrapper.queryByText("Item List")).toBeInTheDocument();
+        expect(wrapper.queryByText("Please Wait")).toBeInTheDocument();
+    });
 });

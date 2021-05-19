@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
         width: "100%",
         overflowY: "hidden",
         backgroundColor:
+            /* istanbul ignore next */
             theme.palette.type === "dark"
                 ? theme.palette.containerPrimary.dark
                 : theme.palette.containerPrimary.light,
@@ -29,7 +30,10 @@ const useStyles = makeStyles((theme) => ({
         margin: "20px 5vw",
         marginTop: "0px",
         height: "40px",
-        background: theme.palette.type === "dark" ? "transparent" : "white",
+
+        background:
+            /* istanbul ignore next */
+            theme.palette.type === "dark" ? "transparent" : "white",
         [theme.breakpoints.down("sm")]: {
             marginTop: "20px",
         },

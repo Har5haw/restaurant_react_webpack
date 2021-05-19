@@ -65,7 +65,7 @@ const HomeTemplate = (props) => {
             {props.isLoading && (
                 <Dialog open={true}>
                     <Box className={style.loading}>
-                        <Typography variant="caption"> Please Wait</Typography>
+                        <Typography variant="caption">Please Wait</Typography>
                         <CircularProgress
                             style={{ height: "50px", width: "50px" }}
                         />
